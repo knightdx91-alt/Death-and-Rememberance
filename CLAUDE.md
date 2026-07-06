@@ -26,3 +26,18 @@ agents, style/grammar gates) is configured per-environment/account, so it is ava
 here the same as in the sibling book repos.
 
 The active project lives at `book/genesis/finding-lady-death/`; read its own `CLAUDE.md` and `STATE.yaml` first.
+
+## 🔧 Pipeline source of truth — book-pipeline (READ + OBEY THE UPDATE RULE)
+
+The book-writing pipeline (the 12 `book-*` agents, `/gemini` + `/grok` commands,
+APODICTIC plugin) is shared from **`knightdx91-alt/book-pipeline`**, cloned into
+`~/.claude/` each session by the environment setup script. It is the ONE place the
+pipeline is edited.
+
+**UPDATE RULE:** anytime you make the pipeline better — create a new book that needs
+a new agent/tool, modify an agent/command/gate, or add a better entry to a shared
+list (anti-AI pattern, craft-mistake rule, reusable motif convention, second-opinion
+model) — commit that change to **book-pipeline** and push to `main`, so every book
+inherits it next session. Do NOT strand improvements in a single book. (Per-book
+style_check ALLOWLISTs are the exception — those stay in each book, seeded from the
+_template.)
